@@ -17,7 +17,7 @@ public class UniqueChars {
         for(int i = 1; i < s.length(); i ++) {
             Boolean isduplicate = false ;
             for(int j = 0 ; j < i; j ++) {
-                if(s.charAt(i) == s.charAt(j))
+                if(s.charAt(i) == s.charAt(j) && (int) s.charAt(i) != 32)
                 {
                     isduplicate = true ;
                     break;
