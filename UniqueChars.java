@@ -12,6 +12,22 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         // Replace the following statement with your code
-        return null;
+        String newstr = "";
+        newstr = newstr + s.charAt(0);
+        for(int i = 1; i < s.length(); i ++) {
+            Boolean isduplicate = false ;
+            for(int j = 0 ; j < i; j ++) {
+                if(s.charAt(i) == s.charAt(j))
+                {
+                    isduplicate = true ;
+                    break;
+                }
+            }
+            if(isduplicate == false) {
+                newstr = newstr + s.charAt(i);
+            }
+
+        }
+        return newstr;
     }
 }
