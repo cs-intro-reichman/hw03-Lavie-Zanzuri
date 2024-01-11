@@ -8,6 +8,7 @@ public class Calendar1 {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
+	static int countSundays = 0;
 	
 	/** 
 	 * Prints the calendars of all the years in the 20th century. Also prints the  
@@ -38,33 +39,30 @@ public class Calendar1 {
 	 // Advances the date (day, month, year) and the day-of-the-week.
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
-	 private static void advance() {
-		// Replace this comment with your code
-		 int countSundays = 0;
+	private static void advance() {
+    	for (month = 1; month <= 12; month++) {
+        for (int dayOfMonth = 1; dayOfMonth <= nDaysInMonth(month, year); dayOfMonth++) {
+            if (dayOfWeek == 1) {
+                System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
+            } else {
+                System.out.println(dayOfMonth + "/" + month + "/" + year);
+            }
+            if(dayOfWeek == 1 &&dayOfMonth == 1){
+            	countSundays++;
+            }
+            if (dayOfWeek == 7) {
+                dayOfWeek = 1;
+            } else {
+                dayOfWeek++;
+            }
+        }
+    }
+    year++;
+    System.out.println("During the 20th century, " + countSundays + " Sundays fell on the first day of the month");
+}
 
-		    while (month <= 12) {
-		        for (int dayOfMonth = 1; dayOfMonth <= nDaysInMonth(month, year); dayOfMonth++) {
-		            if (dayOfWeek == 1) {
-		                System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
-		                countSundays++;
-		            } else {
-		                System.out.println(dayOfMonth + "/" + month + "/" + year);
-		            }
 
-		            if (dayOfWeek == 7) {
-		                dayOfWeek = 1;
-		            } else {
-		                dayOfWeek++;
-		            }
-		        }
 
-		        month = month + 1;
-		    }
-
-		    year = year + 1;
-		    month = 1;
-		    dayOfMonth = 1;
-		}
 		
 	 
 		 
