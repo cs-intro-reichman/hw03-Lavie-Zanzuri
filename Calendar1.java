@@ -57,7 +57,7 @@ public class Calendar1 {
         }
     }
     year++;
-    system.out.println("During the 20th century, " + countSundays + "Sundays fell on the first day of the month");
+    system.out.println("During the 20th century, " + countSundays + " Sundays fell on the first day of the month");
 }
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
