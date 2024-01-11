@@ -19,10 +19,10 @@ public class Calendar1 {
 	    // Prints each date dd/mm/yyyy in a separate line. If the day is a Sunday, prints "Sunday".
 	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
 	    int debugDaysCounter = 0; 
-		int yearGiven = Integer.parseInt(args[0]);
+		
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
-	 	while (year < yearGiven) {
+	 	while (year < 2000) {
 	 		//// Write the body of the while 		
 	 		advance();
 	 		debugDaysCounter++;
@@ -32,18 +32,6 @@ public class Calendar1 {
 	 			break;
 	 		}
         }
-        for(month = 1; month <= 12; month++) {
-	 		for (int dayOfMonth = 1; dayOfMonth <= nDaysInMonth(month, year); dayOfMonth++) {	
-	 		if (dayOfWeek == 1) {
-                System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
-            } else {
-                System.out.println(dayOfMonth + "/" + month + "/" + year);
-				}
-                if (dayOfWeek == 7) {
-                dayOfWeek = 1;
-            } else {
-                dayOfWeek++;
-            }
 	 	//// Write the necessary ending code here
 	 }
 	
@@ -53,6 +41,14 @@ public class Calendar1 {
 	private static void advance() {
     	for (month = 1; month <= 12; month++) {
         for (int dayOfMonth = 1; dayOfMonth <= nDaysInMonth(month, year); dayOfMonth++) {
+        	if (dayOfWeek == 1) {
+                System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
+            } else {
+                System.out.println(dayOfMonth + "/" + month + "/" + year);
+            }
+            if(dayOfMonth == 1 && dayOfWeek == 1){
+            	countSundays ++ ;
+            }
             if (dayOfWeek == 7) {
                 dayOfWeek = 1;
             } else {
@@ -61,13 +57,8 @@ public class Calendar1 {
         }
     }
     year++;
+    system.out.println("During the 20th century, " + countSundays + "Sundays fell on the first day of the month");
 }
-
-
-
-		
-	 
-		 
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
 	    // Replace the following statement with your code
