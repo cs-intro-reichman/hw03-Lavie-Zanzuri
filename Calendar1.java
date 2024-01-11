@@ -1,7 +1,7 @@
 /** 
  * Prints the calendars of all the years in the 20th century.
  */
-public class Calendar1 {	
+public class Calendar {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
@@ -20,6 +20,7 @@ public class Calendar1 {
 	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
 	    int debugDaysCounter = 0; 
 		
+				
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
 	 	while (year < 2000) {
@@ -41,13 +42,13 @@ public class Calendar1 {
 	private static void advance() {
     	for (month = 1; month <= 12; month++) {
         for (int dayOfMonth = 1; dayOfMonth <= nDaysInMonth(month, year); dayOfMonth++) {
-        	if (dayOfWeek == 1) {
+            if (dayOfWeek == 1) {
                 System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");
             } else {
                 System.out.println(dayOfMonth + "/" + month + "/" + year);
             }
-            if(dayOfMonth == 1 && dayOfWeek == 1){
-            	countSundays ++ ;
+            if(dayOfWeek == 1 &&dayOfMonth == 1){
+            	countSundays++;
             }
             if (dayOfWeek == 7) {
                 dayOfWeek = 1;
@@ -57,7 +58,7 @@ public class Calendar1 {
         }
     }
     year++;
-    system.out.println("During the 20th century, " + countSundays + " Sundays fell on the first day of the month");
+    System.out.println("During the 20th century, " + countSundays + " Sundays fell on the first day of the month");
 }
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
