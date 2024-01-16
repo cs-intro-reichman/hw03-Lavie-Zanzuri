@@ -10,6 +10,8 @@ public class UniqueChars {
      * except that all the duplicate characters are removed,
      * unless they are space characters.
      */
+
+    // TODO: you could solve it more easily using s.indexOf method as suggested.
     public static String uniqueChars(String s) {
         // Replace the following statement with your code
         String newstr = "";
